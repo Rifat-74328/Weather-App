@@ -1,0 +1,40 @@
+<div class="search-container" [formGroup]="searchform" style="display: flex; justify-content: center;align-items: center;margin-top: 50px;">
+  <input type="text" formControlName="city" class="search-input" placeholder="search city..." style="padding: 10px;border: 1px solid #ccc; border-radius: 5px;">
+  <button class="search-button" (click)="searchWeather()" style="padding: 10px 20px;background-color: #1e2a78; color: white; border-radius: 5px; border: none; cursor:pointer; margin-left: 10px;">Search</button>
+</div>
+@if (weather) {
+<div class="content" >
+  <div class="row">
+    <div class="image-container">
+      <img src="{{weather.bg_image}}" alt="" class="section-image">
+      
+    </div>
+
+        <div class="temparature" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+          <div style="font-size: 20px;">
+            {{weather.city}}
+          </div>
+          <hr>
+          <div style="font-size: 20px;">
+            {{weather.current_weather}}
+          </div>
+          {{weather.temp}} c
+        </div>
+</div>
+
+      <div class="row">
+        <div class="section-2">
+          <div class="top-info">
+            <p>Expected temp: {{weather.expected_temp}} </p>
+          </div>
+          <div class="bottom">
+            <p>humidity: {{weather.humidity}}</p>
+           
+            <p>wind speed: {{weather.wind}}</p>
+          </div>
+        </div>
+      </div>
+
+  </div>}
+
+<router-outlet />
